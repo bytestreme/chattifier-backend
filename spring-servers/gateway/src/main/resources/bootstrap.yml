@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: gateway-server
+  cloud:
+    config:
+      uri: http://localhost:8888
+      enabled: true
+      name: gateway-server
+    loadbalancer:
+      ribbon:
+        enabled: false

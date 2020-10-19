@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      discovery:
+        enabled: true
+      server:
+        git:
+          uri: https://github.com/bytestreme/chat-backend-config
+          clone-on-start: true
+          skip-ssl-validation: true
+          search-paths: main
+          default-label: main
+      label: main
+server:
+  port: 8888
+

@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+
+    <script type="text/javascript">
+        var ws = new WebSocket("ws://localhost:8080/ws/send?auth=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1ZjhkMGJkNzE3MTU3NzIwNTNlNmJjNWMiLCJ0b2tlbi12ZXJzaW9uIjoiNmI1MzZjMTEtNDI3NS00NGYzLTk0OGUtNDE1NDhmMWNhZDFiIiwicm9sZXMiOlsiUk9MRV9VU0VSIl19.uT8nBKD4gUXhhcArfsDdfSiUOAA5bljO8s3ErQJIFeQ");
+
+        function sendMessage() {
+            ws.send(JSON.stringify({
+                "text": document.getElementById("textId").value,
+                "chatId": "5f8d0bd71715772053e6bc5c"
+            }));
+            console.log("message sent")
+        }
+
+        function timeFunction() {
+            setInterval(function () {
+                sendMessage();
+            }, 1000);
+        }
+
+        ws.onclose = function () {
+            alert("Connection is closed...");
+        };
+        ws.onmessage = function (ev) {
+            console.log(ev.data)
+        }
+    </script>
+
+</head>
+
+<body>
+<div id="sse">
+    <input type="button" onclick="sendMessage()">
+    <input id="textId" type="text">
+    <input type="button" onclick="timeFunction()" value="time">
+</div>
+
+</body>
+</html>

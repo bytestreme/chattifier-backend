@@ -1,0 +1,8 @@
+rootProject.name = 'chattifier-backend'
+
+include ':chat-services:message-process-service'
+include ':chat-services:message-delivery-service'
+include ':spring-servers:gateway'
+include ':spring-servers:eureka-server'
+include ':spring-servers:config-server'
+include ':spring-servers:admin-server'

@@ -1,0 +1,14 @@
+rootProject.name = 'spring-servers'
+
+include ':spring-servers:eureka-server'
+project(':spring-servers:eureka-server').projectDir = file('./eureka-server')
+
+include ':spring-servers:gateway'
+project(':spring-servers:gateway').projectDir = file('./gateway')
+
+include ':spring-servers:config-server'
+project(':spring-servers:config-server').projectDir = file('./config-server')
+
+include ':spring-servers:admin-server'
+project(':spring-servers:admin-server').projectDir = file('./admin-server')
+

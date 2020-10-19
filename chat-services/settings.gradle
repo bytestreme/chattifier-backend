@@ -1,0 +1,8 @@
+rootProject.name = 'chat-services'
+
+include ':chat-services:message-process-service'
+project(':chat-services:message-process-service').projectDir = file('./message-process-service')
+
+include ':chat-services:message-delivery-service'
+project(':chat-services:message-delivery-service').projectDir = file('./message-delivery-service')
+
