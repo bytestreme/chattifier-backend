@@ -4,4 +4,4 @@ before_install:
 jdk:
   - oraclejdk11
 script:
-  - ./gradlew clean build -x test --scan -s
+  - ./gradlew clean build -x test
