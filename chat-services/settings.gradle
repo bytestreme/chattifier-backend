@@ -6,3 +6,6 @@ project(':chat-services:message-process-service').projectDir = file('./message-p
 include ':chat-services:message-delivery-service'
 project(':chat-services:message-delivery-service').projectDir = file('./message-delivery-service')
 
+include ':chat-services:users-search-service'
+project(':chat-services:users-search-service').projectDir = file('./users-search-service')
+
