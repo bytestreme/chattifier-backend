@@ -34,13 +34,37 @@ services:
     image: "redis:alpine"
     ports:
       - "6379:6379"
-  testss:
-    image: "shynggys/config-server:latest"
+  config-server:
+    image: "shynggys/com.example.message-process-service:latest"
     ports:
     - "8888:8888"
-  testss1:
-    image: "shynggys/eureka-server:latest"
+  eureka-server:
+    image: "shynggys/com.example.eureka-server:latest"
     depends_on:
-      - testss
+      - config-server
     ports:
     - "8761:8761"
+  admin-server:
+    image: "shynggys/com.example.admin-server:latest"
+    depends_on:
+      - config-server
+    ports:
+      - "12345:12345"
+  gateway:
+    image: "shynggys/com.example.gateway:latest"
+    depends_on:
+      - config-server
+    ports:
+      - "8080:8080"
+  message-process-serice:
+    image: "shynggys/com.example.message-process-service:latest"
+    depends_on:
+      - config-server
+    ports:
+      - "65432:65432"
+  message-delivery-serice:
+    image: "shynggys/com.example.message-delivery-service:latest"
+    depends_on:
+      - config-server
+    ports:
+      - "45612:45612"
