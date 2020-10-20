@@ -16,7 +16,7 @@ services:
     ports:
       - "9092:9092"
     environment:
-      KAFKA_ADVERTISED_LISTENERS: LISTENER_DOCKER_INTERNAL://kafka1:19092,LISTENER_DOCKER_EXTERNAL://${DOCKER_HOST_IP:-127.0.0.1}:9092
+      KAFKA_ADVERTISED_LISTENERS: LISTENER_DOCKER_INTERNAL://kafka1:19092,LISTENER_DOCKER_EXTERNAL://host.docker.internal:9092
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: LISTENER_DOCKER_INTERNAL:PLAINTEXT,LISTENER_DOCKER_EXTERNAL:PLAINTEXT
       KAFKA_INTER_BROKER_LISTENER_NAME: LISTENER_DOCKER_INTERNAL
       KAFKA_ZOOKEEPER_CONNECT: "zoo1:2181"
@@ -35,7 +35,7 @@ services:
     ports:
       - "6379:6379"
   config-server:
-    image: "shynggys/com.example.message-process-service:latest"
+    image: "shynggys/com.example.config-server:latest"
     ports:
     - "8888:8888"
   eureka-server:
@@ -44,27 +44,89 @@ services:
       - config-server
     ports:
     - "8761:8761"
+    links:
+      - config-server
   admin-server:
     image: "shynggys/com.example.admin-server:latest"
     depends_on:
       - config-server
     ports:
       - "12345:12345"
+    links:
+      - config-server
   gateway:
     image: "shynggys/com.example.gateway:latest"
     depends_on:
       - config-server
     ports:
       - "8080:8080"
-  message-process-serice:
+    links:
+      - config-server
+      - redis
+      - mongo
+
+  message-process-service:
     image: "shynggys/com.example.message-process-service:latest"
     depends_on:
       - config-server
+    environment:
+      - INSTANCE_PORT=56984
     ports:
-      - "65432:65432"
-  message-delivery-serice:
+      - "56984:56984"
+    links:
+      - config-server
+      - kafka1
+      - mongo
+      - redis
+  message-process-service1:
+    image: "shynggys/com.example.message-process-service:latest"
+    depends_on:
+      - config-server
+    environment:
+      - INSTANCE_PORT=56985
+    ports:
+      - "56985:56985"
+    links:
+      - config-server
+      - kafka1
+      - mongo
+      - redis
+  message-delivery-service:
     image: "shynggys/com.example.message-delivery-service:latest"
     depends_on:
       - config-server
+    environment:
+      - INSTANCE_PORT=45612
     ports:
       - "45612:45612"
+    links:
+      - config-server
+      - kafka1
+      - mongo
+      - redis
+  message-delivery-service2:
+    image: "shynggys/com.example.message-delivery-service:latest"
+    depends_on:
+      - config-server
+    environment:
+      - INSTANCE_PORT=45613
+    ports:
+      - "45613:45613"
+    links:
+      - config-server
+      - kafka1
+      - mongo
+      - redis
+  message-delivery-service3:
+    image: "shynggys/com.example.message-delivery-service:latest"
+    depends_on:
+      - config-server
+    environment:
+      - INSTANCE_PORT=45613
+    ports:
+      - "45613:45613"
+    links:
+      - config-server
+      - kafka1
+      - mongo
+      - redis
