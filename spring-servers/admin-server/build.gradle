@@ -2,11 +2,13 @@ plugins {
     id 'org.springframework.boot' version '2.3.4.RELEASE'
     id 'io.spring.dependency-management' version '1.0.10.RELEASE'
     id 'java'
+    id 'com.palantir.docker' version '0.25.0'
 }
 
 group = 'com.example'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
+def dockerUser = 'shynggys'
 
 configurations {
     compileOnly {
@@ -25,10 +27,8 @@ ext {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
-    implementation 'de.codecentric:spring-boot-admin-starter-server'
-
     implementation 'org.springframework.cloud:spring-cloud-starter-config'
-
+    implementation 'de.codecentric:spring-boot-admin-starter-server'
     implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
@@ -42,6 +42,14 @@ dependencyManagement {
         mavenBom "de.codecentric:spring-boot-admin-dependencies:${springBootAdminVersion}"
         mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
     }
+}
+
+docker {
+    name "${dockerUser}/${group}.${bootJar.baseName}"
+    tags "${version}"
+    dockerfile file("Dockerfile")
+    files bootJar.archivePath
+    buildArgs "JAR_FILE": "${bootJar.baseName}-${bootJar.version}.jar"
 }
 
 test {

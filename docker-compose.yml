@@ -34,3 +34,13 @@ services:
     image: "redis:alpine"
     ports:
       - "6379:6379"
+  testss:
+    image: "shynggys/config-server:latest"
+    ports:
+    - "8888:8888"
+  testss1:
+    image: "shynggys/eureka-server:latest"
+    depends_on:
+      - testss
+    ports:
+    - "8761:8761"

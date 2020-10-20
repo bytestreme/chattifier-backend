@@ -3,6 +3,6 @@ spring:
     name: discovery-server
   cloud:
     config:
-      uri: http://localhost:8888
+      uri: http://host.docker.internal:8888
       enabled: true
       name: discovery-server
