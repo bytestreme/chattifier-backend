@@ -10,6 +10,7 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 def dockerUser = 'shynggys'
 
+
 configurations {
 	compileOnly {
 		extendsFrom annotationProcessor
@@ -56,7 +57,6 @@ docker {
 	files bootJar.archivePath
 	buildArgs "JAR_FILE": "${bootJar.baseName}-${bootJar.version}.jar"
 }
-
 
 test {
 	useJUnitPlatform()
