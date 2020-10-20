@@ -25,11 +25,16 @@ services:
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
     depends_on:
       - zoo1
-  mongo:
+  mongo-users:
     image: 'mongo'
-    container_name: mongo
+    container_name: mongo-users
     ports:
-      - "27017:27017"
+      - "27555:27017"
+  mongo-messages:
+    image: 'mongo'
+    container_name: mongo-messages
+    ports:
+      - "27097:27017"
   redis:
     image: "redis:alpine"
     ports:
@@ -58,12 +63,14 @@ services:
     image: "shynggys/com.example.gateway:latest"
     depends_on:
       - config-server
+    environment:
+      - MONGO_PORT=27555
     ports:
       - "8080:8080"
     links:
       - config-server
       - redis
-      - mongo
+      - mongo-users
 
   message-process-service:
     image: "shynggys/com.example.message-process-service:latest"
@@ -71,62 +78,40 @@ services:
       - config-server
     environment:
       - INSTANCE_PORT=56984
+      - MONGO_PORT=27097
     ports:
       - "56984:56984"
     links:
       - config-server
       - kafka1
-      - mongo
+      - mongo-messages
       - redis
-  message-process-service1:
-    image: "shynggys/com.example.message-process-service:latest"
-    depends_on:
-      - config-server
-    environment:
-      - INSTANCE_PORT=56985
-    ports:
-      - "56985:56985"
-    links:
-      - config-server
-      - kafka1
-      - mongo
-      - redis
+
   message-delivery-service:
     image: "shynggys/com.example.message-delivery-service:latest"
     depends_on:
       - config-server
     environment:
       - INSTANCE_PORT=45612
+      - MONGO_PORT=27097
     ports:
       - "45612:45612"
     links:
       - config-server
       - kafka1
-      - mongo
+      - mongo-messages
       - redis
-  message-delivery-service2:
-    image: "shynggys/com.example.message-delivery-service:latest"
+
+  users-search-service:
+    image: "shynggys/com.example.users-search-service:latest"
     depends_on:
       - config-server
     environment:
-      - INSTANCE_PORT=45613
+      - INSTANCE_PORT=42112
+      - MONGO_PORT=27555
     ports:
-      - "45613:45613"
+      - "42112:42112"
     links:
       - config-server
       - kafka1
-      - mongo
-      - redis
-  message-delivery-service3:
-    image: "shynggys/com.example.message-delivery-service:latest"
-    depends_on:
-      - config-server
-    environment:
-      - INSTANCE_PORT=45613
-    ports:
-      - "45613:45613"
-    links:
-      - config-server
-      - kafka1
-      - mongo
-      - redis
+      - mongo-users

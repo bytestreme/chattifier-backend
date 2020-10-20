@@ -35,7 +35,7 @@ public class SecurityConfig {
         .authenticationManager(authenticationManager)
         .securityContextRepository(securityContextRepository)
         .authorizeExchange()
-        .pathMatchers("/auth/**")
+        .pathMatchers("/auth/**", "/users/**")
         .permitAll()
         .and()
         .authorizeExchange()
