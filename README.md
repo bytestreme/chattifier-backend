@@ -1,4 +1,4 @@
-<h3 align=>Chattifier Backend</h5>
+<h3>Chattifier Backend</h5>
 <img src="https://travis-ci.com/bytestreme/chattifier-backend.svg?token=spRRcQKowAe4Cq6N3trv&branch=master">
 <br />
 <br />
