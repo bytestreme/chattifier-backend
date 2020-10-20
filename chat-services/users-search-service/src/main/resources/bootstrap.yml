@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: users-search-service
+  cloud:
+    config:
+      uri: http://host.docker.internal:8888
+      enabled: true
+      name: users-search-service
