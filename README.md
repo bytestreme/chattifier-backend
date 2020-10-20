@@ -1,7 +1,6 @@
 <h3>Chattifier Backend</h5>
 <img src="https://travis-ci.com/bytestreme/chattifier-backend.svg?token=spRRcQKowAe4Cq6N3trv&branch=master">
-<br />
-<br />
+
 
 Chattifier Backend - is a scalable Spring Cloud-based project for real-time message exchange
 
