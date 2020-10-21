@@ -2,7 +2,7 @@
 <img src="https://travis-ci.com/bytestreme/chattifier-backend.svg?token=spRRcQKowAe4Cq6N3trv&branch=master">
 
 
-Chattifier Backend - is a scalable Spring Cloud-based project for real-time message exchange
+Chattifier Backend - is a scalable Spring Cloud project for real-time message exchange
 
 It consists of the following components
 
