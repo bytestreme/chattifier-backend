@@ -28,3 +28,4 @@ Images could be built using `docker-create-images.sh` to create and `docker-push
 - [ ] Stress Testing
 - [ ] Load testing
 - [ ] Autoscaling testing
+- [ ] Additional chat services
