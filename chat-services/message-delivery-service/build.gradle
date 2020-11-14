@@ -56,3 +56,6 @@ docker {
 test {
     useJUnitPlatform()
 }
+
+tasks.docker.dependsOn 'build'
+
