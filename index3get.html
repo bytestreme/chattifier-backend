@@ -4,12 +4,12 @@
 <head>
 
     <script type="text/javascript">
-        var ws = new WebSocket("ws://localhost:8080/ws/send?auth=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1ZmFmOGYwYmJhYzU0MzczZjUwNmVkYzAiLCJ0b2tlbi12ZXJzaW9uIjoiMDlkN2U4YmYtYjk5Yy00MTQ5LTkyMGYtMGU1NGY0ZmIzMDUzIiwicm9sZXMiOlsiUk9MRV9VU0VSIl19.IFgwUZFEANsvSM9N8f8KWb7VJoJ33dagRkagthY5x1I");
-        // user
+        var ws = new WebSocket("ws://localhost:8080/ws/get?auth=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1ZmFmOTEwYmJhYzU0MzczZjUwNmVkYzEiLCJ0b2tlbi12ZXJzaW9uIjoiOGZkNDJkMDktZWU1ZC00ZDUzLWI0YTQtNmE0ZWZiZTMzZmFlIiwicm9sZXMiOlsiUk9MRV9VU0VSIl19.tAA3xyN8wVUqmG52rKup8ckSfhW4u5Fde6dTq1rYRCg");
+        //users
         function sendMessage() {
             ws.send(JSON.stringify({
-                "text": document.getElementById("textId").value + ": from user",
-                "chatId": "5faf910bbac54373f506edc1"
+                "text": document.getElementById("textId").value + ": from users",
+                "chatId": "5faf8f0bbac54373f506edc0"
             }));
             console.log("message sent")
         }

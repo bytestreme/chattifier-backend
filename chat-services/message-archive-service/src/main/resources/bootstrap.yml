@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: message-archive-service
+  cloud:
+    config:
+      uri: http://host.docker.internal:8888
+      enabled: true
+      name: message-archive-service

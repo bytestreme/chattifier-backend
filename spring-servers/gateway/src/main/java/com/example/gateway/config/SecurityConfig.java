@@ -39,7 +39,7 @@ public class SecurityConfig {
         .permitAll()
         .and()
         .authorizeExchange()
-        .pathMatchers("/ws/**", "/users/**")
+        .pathMatchers("/ws/**", "/users/**", "/messages/**")
         .authenticated()
         .and()
         .authorizeExchange()
