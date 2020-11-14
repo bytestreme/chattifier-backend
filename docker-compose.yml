@@ -1,6 +1,11 @@
 version: '3.3'
 
 services:
+  cassandra:
+    image: cassandra:latest
+    ports:
+      - '9042:9042'
+      - '7000:7000'
   zoo1:
     image: zookeeper:3.4.9
     hostname: zoo1

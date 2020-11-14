@@ -5,23 +5,24 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.index.Indexed;
-import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.cassandra.core.mapping.Column;
+import org.springframework.data.cassandra.core.mapping.PrimaryKey;
+import org.springframework.data.cassandra.core.mapping.Table;
 
 import java.util.List;
+import java.util.UUID;
 
-@Document(collection = "users")
+
 @Data
 @AllArgsConstructor
 @Builder
 @NoArgsConstructor
+@Table("users")
 public class User {
 
-  @Id
-  private String id;
+  @PrimaryKey
+  private UserKey key;
 
-  @Indexed
-  private String username;
   private String password;
   private List<String> roles;
 
