@@ -21,4 +21,10 @@ echo './gradlew :chat-services:message-process-service:docker --console plain'
 echo './gradlew :chat-services:message-delivery-service:docker --console plain'
 ./gradlew :chat-services:message-delivery-service:docker --console plain
 
+echo './gradlew :chat-services:users-search-service:docker --console plain'
+./gradlew :chat-services:users-search-service:docker --console plain
+
+echo './gradlew :chat-services:users-registration-service:docker --console plain'
+./gradlew :chat-services:users-registration-service:docker --console plain
+
 echo 'Docker images created'

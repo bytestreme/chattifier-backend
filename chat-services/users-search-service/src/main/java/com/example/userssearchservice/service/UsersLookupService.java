@@ -16,4 +16,8 @@ public class UsersLookupService {
     return userRepository.findAll();
   }
 
+  public Flux<User> getUsersByUsernameStarts(String username) {
+    return userRepository.findAllByUsernameStartingWith(username);
+  }
+
 }

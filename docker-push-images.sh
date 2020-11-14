@@ -18,4 +18,10 @@ echo './gradlew :chat-services:message-process-service:dockerPush --console plai
 echo './gradlew :chat-services:message-delivery-service:dockerPush --console plain'
 ./gradlew :chat-services:message-delivery-service:dockerPush --console plain
 
+echo './gradlew :chat-services:users-search-service:dockerPush --console plain'
+./gradlew :chat-services:users-search-service:dockerPush --console plain
+
+echo './gradlew :chat-services:users-registration-service:dockerPush --console plain'
+./gradlew :chat-services:users-registration-service:dockerPush --console plain
+
 echo 'Docker images pushed'
