@@ -1,4 +1,4 @@
-<h3>Chattifier Backend</h5>
+<h3>Chattifier Backend</h3>
 <img src="https://travis-ci.com/bytestreme/chattifier-backend.svg?token=spRRcQKowAe4Cq6N3trv&branch=master">
 
 
@@ -21,3 +21,11 @@ It consists of the following components
 
 Images could be built using `docker-create-images.sh` to create and `docker-push-images.sh` to push them.
 
+<h3>TODO</h3>
+
+- [ ] K8s cloud deploy
+- [ ] Threads profiling 
+- [ ] Stress Testing
+- [ ] Load testing
+- [ ] Autoscaling testing
+- [ ] Additional chat services
