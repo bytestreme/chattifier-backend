@@ -30,6 +30,11 @@ services:
     container_name: mongo-users
     ports:
       - "27555:27017"
+  mongo-default:
+    image: 'mongo'
+    container_name: mongo-users
+    ports:
+      - "27017:27017"
   mongo-messages:
     image: 'mongo'
     container_name: mongo-messages

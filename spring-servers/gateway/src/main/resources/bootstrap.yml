@@ -6,6 +6,3 @@ spring:
       uri: http://host.docker.internal:8888
       enabled: true
       name: gateway-server
-    loadbalancer:
-      ribbon:
-        enabled: false

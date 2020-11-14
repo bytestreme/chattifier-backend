@@ -33,11 +33,6 @@ public class AuthController {
     return authService.login(body);
   }
 
-  @PostMapping("signup")
-  public Mono<ResponseEntity<ResponseWrapper>> register(@RequestBody UserCredentialDto body) {
-    return authService.register(body);
-  }
-
   @PostMapping("logout")
   public Mono<ResponseEntity<ResponseWrapper>> logout(@AuthenticationPrincipal Principal principal, @RequestHeader(name = "Authorization") String token) {
     System.out.println(token);

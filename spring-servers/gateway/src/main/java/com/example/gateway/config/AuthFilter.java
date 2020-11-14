@@ -12,9 +12,9 @@ import java.util.stream.Collectors;
 
 @Slf4j
 @Component
-public class CustomFilter extends AbstractGatewayFilterFactory<CustomFilter.Config> {
+public class AuthFilter extends AbstractGatewayFilterFactory<AuthFilter.Config> {
 
-  public CustomFilter() {
+  public AuthFilter() {
     super(Config.class);
   }
 

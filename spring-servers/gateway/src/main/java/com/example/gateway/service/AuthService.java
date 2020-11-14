@@ -30,24 +30,6 @@ public class AuthService {
   private String TOKEN_VERSION_KEY;
 
   @NonNull
-  public Mono<ResponseEntity<ResponseWrapper>> register(UserCredentialDto user) {
-    return userRepository.findByUsername(user.getUsername())
-        .map(u -> ResponseEntity.badRequest()
-            .body(ResponseWrapper.of("USER_EXISTS", Strings.EMPTY)))
-        .switchIfEmpty(
-            userRepository.save(User.builder()
-                .id(null)
-                .username(user.getUsername())
-                .password(passwordEncoder.encode(user.getPassword()))
-                .roles(List.of("ROLE_USER"))
-                .build()
-            )
-                .map(u -> ResponseEntity.ok()
-                    .body(ResponseWrapper.of("USER_CREATED", user.getUsername())))
-        );
-  }
-
-  @NonNull
   public Mono<ResponseEntity<ResponseWrapper>> login(UserCredentialDto body) {
     String version = UUID.randomUUID().toString();
     return userRepository.findByUsername(body.getUsername())

@@ -5,7 +5,7 @@ import io.jsonwebtoken.Claims;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.ReactiveRedisTemplate;
-import org.springframework.security.authentication.AccountExpiredException;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.ReactiveAuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -57,10 +57,11 @@ public class AuthenticationManager implements ReactiveAuthenticationManager {
       return redisTemplate.opsForHash().get(TOKEN_VERSION_KEY, username)
           .filter(x -> ((String) x).equals(tokenVersion))
           .flatMap(y -> Mono.<Authentication>just(auth))
-          .switchIfEmpty(Mono.error(new AccountExpiredException("TOKEN_INVALID")));
+          .switchIfEmpty(Mono.error(new BadCredentialsException("TOKEN_INVALID") {
+          }));
 
     } else {
-      return Mono.error(new AccountExpiredException("TOKEN_INVALID"));
+      return Mono.error(new BadCredentialsException("TOKEN_INVALID"));
     }
   }
 }
