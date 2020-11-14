@@ -26,5 +26,3 @@ echo './gradlew :chat-services:users-registration-service:dockerPush --console p
 
 echo './gradlew :chat-services:message-archive-service:dockerPush --console plain'
 ./gradlew :chat-services:message-archive-service:dockerPush --console plain
-
-echo 'Docker images pushed'

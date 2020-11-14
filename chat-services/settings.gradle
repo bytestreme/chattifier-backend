@@ -12,3 +12,5 @@ project(':chat-services:users-search-service').projectDir = file('./users-search
 include ':chat-services:users-registration-service'
 project(':chat-services:users-registration-service').projectDir = file('./users-registration-service')
 
+include ':chat-services:message-archive-service'
+project(':chat-services:message-archive-service').projectDir = file('./message-archive-service')
