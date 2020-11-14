@@ -1,7 +1,7 @@
 #!/bin/bash
 
-echo './gradlew clean build -x test --console plain'
-./gradlew clean build -x test --console plain
+echo './gradlew clean --console plain'
+./gradlew clean --console plain
 
 echo './gradlew :spring-servers:config-server:docker --console plain'
 ./gradlew :spring-servers:config-server:docker --console plain
