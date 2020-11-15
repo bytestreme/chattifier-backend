@@ -21,11 +21,18 @@ It consists of the following components
 
 Images could be built using `docker-create-images.sh` to create and `docker-push-images.sh` to push them.
 
-<h3>TODO</h3>
+<h4>TODO:</h4>
 
+<h5>dev</h5>
+- [ ] Migrate message storage from MongoDB to Cassandra
+- [ ] Migrate timestamp storage from MongoDB to Redis
+- [ ] Revert users storage to MongoDB
+
+<h5>deploy</h5>
 - [ ] K8s cloud deploy
 - [ ] Threads profiling 
 - [ ] Stress Testing
 - [ ] Load testing
 - [ ] Autoscaling testing
 - [ ] Additional chat services
+
