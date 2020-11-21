@@ -1,3 +1,11 @@
 spring:
   application:
     name: message-process-service
+  data:
+    cassandra:
+      keyspace-name: userkeyspace
+      port: 9042
+      local-datacenter: datacenter1
+      password: cassandra
+      username: cassandra
+      base-packages: com.example.messageprocessservice.model

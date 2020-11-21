@@ -1,6 +1,6 @@
 package com.example.messageprocessservice.ws;
 
-import com.example.messageprocessservice.domain.kafka.MessageInput;
+import com.example.messageprocessservice.model.kafka.MessageInput;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.core.ResolvableType;

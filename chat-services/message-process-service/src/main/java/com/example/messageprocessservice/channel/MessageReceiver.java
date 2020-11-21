@@ -1,6 +1,6 @@
 package com.example.messageprocessservice.channel;
 
-import com.example.messageprocessservice.domain.kafka.MessageInput;
+import com.example.messageprocessservice.model.kafka.MessageInput;
 import com.example.messageprocessservice.ws.WebSocketMessageMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

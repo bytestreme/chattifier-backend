@@ -1,4 +1,4 @@
-package com.example.messageprocessservice.domain.kafka;
+package com.example.messageprocessservice.model.kafka;
 
 import lombok.*;
 

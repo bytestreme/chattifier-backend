@@ -1,7 +1,7 @@
 package com.example.messageprocessservice.config;
 
-import com.example.messageprocessservice.domain.kafka.MessageInput;
-import com.example.messageprocessservice.domain.kafka.MessageInputSerializer;
+import com.example.messageprocessservice.model.kafka.MessageInput;
+import com.example.messageprocessservice.model.kafka.MessageInputSerializer;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.beans.factory.annotation.Value;
