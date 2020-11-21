@@ -15,7 +15,12 @@ It consists of the following components
 * Chat Services
   - Message Processing Service - handle user-sent messages
   - Message Delivery Service - distribute the messages destined to the client
+  - Message Archive Service - load all/read messages
+  
+* User Services
+  - User Registration Service - create account for new users
   - User Search Service - search for users to send messages
+  
 
 <img src="/img/scheme.png" />
 
