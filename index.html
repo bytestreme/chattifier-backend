@@ -4,12 +4,12 @@
 <head>
 
     <script type="text/javascript">
-        var ws = new WebSocket("ws://localhost:8080/ws/send?auth=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1ZmI5MmRkYWQxZTg5OTI5YWU3YWFlOTciLCJ0b2tlbi12ZXJzaW9uIjoiMTYzZjY0YTQtN2FiMy00MjBhLTgxYTAtMTUyYjM4NGE4YzNjIiwicm9sZXMiOlsiUk9MRV9VU0VSIl19.0-tRxNIUW10cRyxztdBsVCRhTG6zWwKRRjTrnM__5no");
+        var ws = new WebSocket("ws://localhost:8080/ws/send?auth=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1ZmI5MmU3YmQxZTg5OTI5YWU3YWFlOTgiLCJ0b2tlbi12ZXJzaW9uIjoiNjRjZDhhNDEtMTNkMy00MjI2LTg1NDctYjc3MWQ5MWVhYzg4Iiwicm9sZXMiOlsiUk9MRV9VU0VSIl19.fOvZhwqz5dIN-mnb9TC4XbzZj862m7paOgGc-_X1oK8");
         // user
         function sendMessage() {
             ws.send(JSON.stringify({
                 "text": document.getElementById("textId").value + ": from user",
-                "chatId": "5fb92e7bd1e89929ae7aae98"
+                "chatId": "5fb93a2ead2fd75466d4fb90"
             }));
             console.log("message sent")
         }

@@ -4,12 +4,12 @@
 <head>
 
     <script type="text/javascript">
-        var ws = new WebSocket("ws://localhost:8080/ws/get?auth=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1ZmI5MmU3YmQxZTg5OTI5YWU3YWFlOTgiLCJ0b2tlbi12ZXJzaW9uIjoiZTE4MjJhMGUtYjFlMS00ZmY0LTkxZDMtZWM1YTM4NzZjZjYxIiwicm9sZXMiOlsiUk9MRV9VU0VSIl19.zxEJrMKwIa7DO9GY5FVntZopv36nFLqFOd8hT049h2k");
+        var ws = new WebSocket("ws://localhost:8080/ws/get?auth=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1ZmI5M2EyZWFkMmZkNzU0NjZkNGZiOTAiLCJ0b2tlbi12ZXJzaW9uIjoiZDQ1MWRkNTgtOWEwMi00ODI0LThjOWEtNGI5OTMxMDI5ZDJjIiwicm9sZXMiOlsiUk9MRV9VU0VSIl19.LLt_5B_FAztDPqbRu2E-0QvtE_h0xpsAHgzHv0la0UI");
         //users
         function sendMessage() {
             ws.send(JSON.stringify({
                 "text": document.getElementById("textId").value + ": from users",
-                "chatId": "5faf8f0bbac54373f506edc0"
+                "chatId": "5fb93a2ead2fd75466d4fb90"
             }));
             console.log("message sent")
         }
