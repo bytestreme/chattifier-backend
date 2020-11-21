@@ -27,7 +27,7 @@ Images could be built using `docker-create-images.sh` to create and `docker-push
 
 - [ ] Migrate message storage from MongoDB to Cassandra
 - [ ] Migrate timestamp storage from MongoDB to Redis
-- [ ] Revert users storage to MongoDB
+- [x] Revert users storage to MongoDB
 
 <h5>deploy</h5>
 
